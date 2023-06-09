@@ -17,7 +17,7 @@ class Solution{
     {
         
         // your code here
-        unordered_map<int,int>mp;
+     /*   unordered_map<int,int>mp;
         for(int i=0;i<size;i++)
         {
             mp[a[i]]++;
@@ -27,6 +27,28 @@ class Solution{
             if(it.second>size/2)
             return it.first;
         }
+        return -1;*/
+        // optimal solution using moore voting algo
+        int ele,cnt=0;
+        for(int i=0;i<size;i++)
+        {
+            if(cnt==0)
+            {
+                cnt=1;
+                ele=a[i];
+            }
+            else if(a[i]==ele)
+            cnt++;
+            else cnt--;
+        }
+        int count_op=0;
+        for(int i=0;i<size;i++)
+        {
+            if(a[i]==ele)
+            count_op++;
+        }
+        if(count_op>size/2)
+        return ele;
         return -1;
         
     }
