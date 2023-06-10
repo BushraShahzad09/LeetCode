@@ -10,7 +10,8 @@ class Solution
         void Rearrange(int arr[], int n)
         {
             // Your code goes here
-            vector<int>ps;
+            // brute force silution
+          /*  vector<int>ps;
             vector<int>ng;
             for(int i=0;i<n;i++)
             {
@@ -30,6 +31,25 @@ class Solution
              for(int i=0;i<ps.size();i++)
             {
                 arr[i+ng.size()]=ps[i];
+            }
+            */
+            // thoda op solution
+            stack<int>st;
+            for(int i=n-1;i>=0;i--)
+            {
+                if(arr[i]>=0)
+                st.push(arr[i]);
+            }
+            int k=0;
+            for(int i=0;i<n;i++)
+            {
+                if(arr[i]<0)
+                arr[k++]=arr[i];
+            }
+            while(!st.empty())
+            {
+                arr[k++]=st.top();
+                st.pop();
             }
             
             
