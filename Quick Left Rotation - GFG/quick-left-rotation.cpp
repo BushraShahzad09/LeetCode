@@ -11,22 +11,9 @@ class Solution{
 	{ 
 	   // Your code goes here
 	   k=k%n;
-	   vector<int>temp(k);
-	   for(int i=0;i<k;i++)
-	   {
-	       temp[i]=arr[i];
-	   }
-	   for(int i=k;i<n;i++)
-	   {
-	       arr[i-k]=arr[i];
-	   }
-	   // put temp back
-	   int j=0;
-	   for(int i=n-k;i<n;i++)
-	   {
-	       arr[i]=temp[j];
-	       j++;
-	   }
+	   reverse(arr,arr+k);
+	   reverse(arr+k,arr+n);
+	   reverse(arr,arr+n);
 	} 
 		 
 
