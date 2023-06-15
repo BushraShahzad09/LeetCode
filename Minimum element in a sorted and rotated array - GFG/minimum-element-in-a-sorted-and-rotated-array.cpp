@@ -7,13 +7,21 @@ class Solution{
 public:
     int findMin(int arr[], int n){
         //complete the function here
-        int mini=INT_MAX;
-        for(int i=0;i<n;i++)
+        // since the array is sorted arrat we apply binary search
+        int s=0,e=n-1;
+        if(arr[n-1]>=arr[0]) return arr[0];
+        while(s<=e)
         {
-            if(arr[i]<=mini)
-            mini=arr[i];
+            int mid=s+(e-s)/2;
+            int previous=(mid+n-1)%n;
+            if(arr[mid]<=arr[previous])
+            return arr[mid];
+            else if(arr[mid]>=arr[0])
+            s=mid+1;
+            else
+            e=mid-1;
         }
-        return mini;
+        return 0;
     }
 };
 
