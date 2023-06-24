@@ -12,7 +12,7 @@ class Solution {
         int j=-1;
         for(int i=n-1;i>=0;i--)
         {
-            int rem=(s[i]-'0');
+            int rem=(int)(s[i]);
             if(rem%2!=0)
             {
                 j=i;
